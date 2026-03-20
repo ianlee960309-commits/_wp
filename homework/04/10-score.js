@@ -83,6 +83,8 @@ let students = [
     { name: "Charlie", id: 103 }
 ];
 
+//
+
 let target = "Bob";
 for (let i = 0; i < students.length; i++) {
     if (students[i].name === target) {
