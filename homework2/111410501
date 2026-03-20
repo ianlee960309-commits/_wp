@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>李丞晏的表單控制項展示 (含註解版)</title>
+    
+    <style>
+        /* 定義全域變數，方便統一管理配色 */
+        :root {
+            --primary-color: #4a90e2;  /* 主題藍色 */
+            --bg-color: #f0f2f5;       /* 背景淡灰色 */
+            --card-bg: #ffffff;        /* 卡片白色 */
+            --border-color: #ddd;      /* 邊框淺灰色 */
+        }
+
+        body {
+            font-family: 'Segoe UI', "Microsoft JhengHei", sans-serif;
+            background-color: var(--bg-color);
+            display: flex;             /* 使用 Flexbox 佈局 */
+            flex-direction: column;    /* 讓內容垂直排列 */
+            align-items: center;       /* 水平置中 */
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 600px;          /* 限制最大寬度，避免在大螢幕上太散 */
+            width: 100%;
+        }
+
+        /* 表單外層的卡片設計 */
+        .form-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;       /* 圓角效果 */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* 淡淡的陰影增加層次 */
+            margin-bottom: 30px;       /* 卡片之間的間距 */
+        }
+
+        /* 輸入框容器，用來區隔每一行輸入項 */
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        /* 設定標籤樣式 */
+        .input-group label {
+            display: block;            /* 讓標籤獨佔一行 */
+            margin-bottom: 8px;
+            font-weight: 600;          /* 字體加粗 */
+        }
+
+        /* 萬用輸入框樣式：包含文字、密碼、Email、日期與下拉選單 */
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;               /* 寬度填滿父容器 */
+            padding: 12px;             /* 內距，讓文字不會貼邊 */
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            box-sizing: border-box;    /* 重要：讓 padding 不會撐大外框寬度 */
+            font-size: 1rem;
+            transition: all 0.3s;      /* 設定所有屬性變化的動畫時間 */
+        }
+
+        /* 當使用者點擊輸入框時的「聚焦」狀態 */
+        input:focus, select:focus, textarea:focus {
+            outline: none;             /* 移除瀏覽器預設的藍框 */
+            border-color: var(--primary-color); /* 變換邊框顏色 */
+            box-shadow: 0 0 5px rgba(74, 144, 226, 0.3); /* 增加發光效果 */
+        }
+
+        /* 單選(Radio)與多選(Checkbox)的排列容器 */
+        .option-group {
+            display: flex;
+            gap: 15px;                 /* 選項之間的間隔 */
+            flex-wrap: wrap;           /* 手機版會自動換行 */
+        }
+
+        /* 按鈕基本樣式 */
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;           /* 滑鼠移上去變手指形狀 */
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #357abd; /* 滑鼠移上去顏色深一點 */
+        }
+
+        /* 問卷問題的特殊裝飾（左側藍條） */
+        .survey-q {
+            background: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid var(--primary-color);
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <div class="form-card">
+        <h2>登入系統</h2>
+        <div class="input-group">
+            <label>帳號 (學號)</label>
+            <input type="text" placeholder="請輸入學號">
+        </div>
+        <div class="input-group">
+            <label>密碼</label>
+            <input type="password" placeholder="請輸入密碼">
+        </div>
+        <button>登入</button>
+    </div>
+
+    <div class="form-card">
+        <h2>新用戶註冊</h2>
+        <div class="input-group">
+            <label>電子郵件</label>
+            <input type="email" placeholder="s111410501@student.nqu.edu.tw">
+        </div>
+        <div class="input-group">
+            <label>所屬系所</label>
+            <select>
+                <option>資訊工程學系</option>
+                <option>電子工程學系</option>
+                <option>其他系所</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label>出生日期</label>
+            <input type="date">
+        </div>
+        <button>確認註冊</button>
+    </div>
+
+    <div class="form-card">
+        <h2>問卷調查範例</h2>
+        <div class="survey-q">
+            <label>1. 您最感興趣的技術領域？</label>
+            <div class="option-group">
+                <label><input type="checkbox"> C 語言</label>
+                <label><input type="checkbox"> 網路安全</label>
+                <label><input type="checkbox"> 後端攻擊</label>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>2. 其他建議</label>
+            <textarea rows="4" placeholder="請在此輸入您的看法..."></textarea>
+        </div>
+        <button style="background-color: #2ecc71;">提交資料</button>
+    </div>
+
+</div>
+
+</body>
+</html>
