@@ -15,160 +15,152 @@ if (num > 0) {
 
 ---
 
-### 2. 九九乘法表
+### 2. 九九乘法表 (for)
 **程式碼：**
 ```javascript
-for (let i = 1; i <= 3; i++) { // 為節省版面，僅示範到 3
-  let row = "";
-  for (let j = 1; j <= 3; j++) {
-    row += `${i} * ${j} = ${i * j}  `;
-  }
-  console.log(row);
+for (let i = 1; i <= 9; i++) {
+    console.log(`2 * ${i} = ${2 * i}`);
 }
 ```
 **測試結果：**
-> 1 * 1 = 1  1 * 2 = 2  1 * 3 = 3  
-> 2 * 1 = 2  2 * 2 = 4  2 * 3 = 6  
-> 3 * 1 = 3  3 * 2 = 6  3 * 3 = 9
+2 * 1 = 2
+2 * 2 = 4
+2 * 3 = 6
+2 * 4 = 8
+2 * 5 = 10
+2 * 6 = 12
+2 * 7 = 14
+2 * 8 = 16
+2 * 9 = 18
 
 ---
 
-### 3. 陣列加總與平均
+### 3. 倒數計時器 (while)
 **程式碼：**
 ```javascript
-const data = [10, 20, 30, 40, 50];
-let sum = 0;
-for (let i = 0; i < data.length; i++) {
-  sum += data[i];
+let count = 5;
+while (count > 0) {
+    console.log(count);
+    count--;
 }
-const result = { total: sum, average: sum / data.length };
-console.log("運算結果：", result);
+console.log("Go!");
 ```
 **測試結果：**
-> 運算結果： { total: 150, average: 30 }
+5
+4
+3
+2
+1
+Go!
 
 ---
 
-### 4. 猜數字遊戲
+### 4. 單位轉換器 (function)
 **程式碼：**
 ```javascript
-let target = 3; 
-let guess = 0;
-while (guess !== target) {
-  guess++; // 模擬從 1 開始猜
-  console.log("當前猜測數字：" + guess);
+function toFahrenheit(celsius) {
+    return (celsius * 9) / 5 + 32;
 }
-console.log("中獎！數字是 " + guess);
+let result = toFahrenheit(25);
+console.log(result);
 ```
 **測試結果：**
-> 當前猜測數字：1  
-> 當前猜測數字：2  
-> 當前猜測數字：3  
-> 中獎！數字是 3
+77
 
 ---
 
-### 5. 聯絡人清單
+### 5. 水果清單管理 (array)
+**程式碼：**
+```javascript
+let fruits = ["蘋果", "香蕉", "橘子"];
+fruits.push("葡萄");
+console.log(fruits);
+console.log("總共有 " + fruits.length + " 種水果");
+```
+**測試結果：**
+[ '蘋果', '香蕉', '橘子', '葡萄' ]
+總共有 4 種水果
+
+---
+
+### 6. 個人資訊卡 (object)
 **程式碼：**
 ```javascript
 let user = {
-  name: "Gemini",
-  email: "old@mail.com",
-  updateEmail: function(newEmail) {
-    this.email = newEmail;
-  }
+    name: "小明",
+    age: 20,
+    skills: ["JavaScript", "HTML"]
 };
-console.log("更新前：", user.email);
-user.updateEmail("hello@google.com");
-console.log("更新後：", user.email);
+console.log(user.name + " 的技能有: " + user.skills.join(", "));
 ```
 **測試結果：**
-> 更新前： old@mail.com  
-> 更新後： hello@google.com
+小明 的技能有: JavaScript, HTML
 
 ---
 
-### 6. 訂單篩選器
+### 7. 成績過濾器 (array + if)
 **程式碼：**
 ```javascript
-const jsonString = '[{"id":1, "price":800}, {"id":2, "price":1500}, {"id":3, "price":2000}]';
-const orders = JSON.parse(jsonString);
-let highValue = [];
-
-for (let i = 0; i < orders.length; i++) {
-  if (orders[i].price > 1000) highValue.push(orders[i].id);
+let scores = [45, 78, 90, 59, 100];
+let passed = [];
+for (let i = 0; i < scores.length; i++) {
+    if (scores[i] >= 60) {
+        passed.push(scores[i]);
+    }
 }
-console.log("高額訂單 ID 清單：", highValue);
+console.log("及格的分數：", passed);
 ```
 **測試結果：**
-> 高額訂單 ID 清單： [ 2, 3 ]
+及格的分數： [ 78, 90, 100 ]
 
 ---
 
-### 7. 購物車計算
+### 8. JSON 資料解析 (json)
 **程式碼：**
 ```javascript
-const cart = [
-  { name: "咖啡", price: 50, qty: 2 },
-  { name: "三明治", price: 80, qty: 1 }
+let jsonString = '{"product": "電腦", "price": 30000}';
+let productObj = JSON.parse(jsonString);
+console.log("產品名稱: " + productObj.product);
+console.log("價格: " + productObj.price);
+```
+**測試結果：**
+產品名稱: 電腦
+價格: 30000
+
+---
+
+### 9. 累加計算器 (for + function)
+**程式碼：**
+```javascript
+function sumUp(n) {
+    let total = 0;
+    for (let i = 1; i <= n; i++) {
+        total += i;
+    }
+    return total;
+}
+console.log(sumUp(10));
+```
+**測試結果：**
+55
+
+---
+
+### 10. 學生資料搜尋 (array + object + for)
+**程式碼：**
+```javascript
+let students = [
+    { name: "Alice", id: 101 },
+    { name: "Bob", id: 102 },
+    { name: "Charlie", id: 103 }
 ];
-let total = 0;
-for (let item of cart) {
-  total += item.price * item.qty;
+
+let target = "Bob";
+for (let i = 0; i < students.length; i++) {
+    if (students[i].name === target) {
+        console.log("找到學生：" + students[i].name + "，學號為：" + students[i].id);
+    }
 }
-console.log("應付總金額：", total);
 ```
 **測試結果：**
-> 應付總金額： 180
-
----
-
-### 8. 倒數計時器
-**程式碼：**
-```javascript
-function countDown(n) {
-  while (n >= 0) {
-    if (n === 0) console.log("時間到！");
-    else console.log(n + "...");
-    n--;
-  }
-}
-countDown(3);
-```
-**測試結果：**
-> 3...  
-> 2...  
-> 1...  
-> 時間到！
-
----
-
-### 9. 字串反轉工具
-**程式碼：**
-```javascript
-function reverseString(str) {
-  return str.split("").reverse().join("");
-}
-const original = "Apple";
-console.log(`${original} 反轉後為: ${reverseString(original)}`);
-```
-**測試結果：**
-> Apple 反轉後為: elppA
-
----
-
-### 10. 成績管理系統
-**程式碼：**
-```javascript
-const students = [
-  { name: "小明", score: 60 },
-  { name: "小華", score: 95 }
-];
-let top = students[0];
-for (let s of students) {
-  if (s.score > top.score) top = s;
-}
-console.log(`第一名是：${top.name} (${top.score}分)`);
-```
-**測試結果：**
-> 第一名是：小華 (95分)
+找到學生：Bob，學號為：102
