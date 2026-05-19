@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevFlow</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-900 text-white min-h-screen">
+
+  <div class="max-w-4xl mx-auto p-6">
+
+    <h1 class="text-4xl font-bold mb-6 text-indigo-400">
+      DevFlow
+    </h1>
+
+    <div class="bg-gray-800 p-4 rounded-xl mb-6">
+
+      <input
+        id="title"
+        class="w-full p-2 rounded bg-gray-900 mb-3"
+        placeholder="輸入標題"
+      >
+
+      <textarea
+        id="content"
+        class="w-full p-2 rounded bg-gray-900 mb-3"
+        rows="4"
+        placeholder="分享你的程式碼想法"
+      ></textarea>
+
+      <textarea
+        id="code"
+        class="w-full p-2 rounded bg-black text-green-400 mb-3"
+        rows="8"
+        placeholder="貼上程式碼"
+      ></textarea>
+
+      <button
+        onclick="createPost()"
+        class="bg-indigo-600 px-4 py-2 rounded"
+      >
+        發布貼文
+      </button>
+
+    </div>
+
+    <div id="posts"></div>
+
+  </div>
+
+  <script src="app.js"></script>
+
+</body>
+</html
