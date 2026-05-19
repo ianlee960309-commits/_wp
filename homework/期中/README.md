@@ -1,8 +1,5 @@
-# 期中專案報告與學習筆記：DevFlow 開發者交流平台
-
-- **專案名稱：** DevFlow（開發者程式碼分享與 AI 助教社群）
-- **繳交人：** 李丞晏 111410501
-
+# 期中專案:DevFlow 開發者交流平台
+>本專案使用 gemini 及 chatgpt 輔助生成
 ---
 
 # Part A：專案報告（Project Report）
