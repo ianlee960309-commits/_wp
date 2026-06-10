@@ -24,6 +24,9 @@ async function initDb() {
       updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
     )
   `);
+  try {
+    db.run("ALTER TABLE posts ADD COLUMN summary TEXT DEFAULT ''");
+  } catch (_) {}
   saveDb();
   return db;
 }

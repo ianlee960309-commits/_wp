@@ -10,6 +10,7 @@
     .post { border-bottom: 1px solid #ddd; padding: 1rem 0; }
     .post h2 { margin: 0 0 .25rem; }
     .post time { color: #888; font-size: .875rem; }
+    .summary { color: #555; font-size: .9rem; margin-top: .35rem; line-height: 1.5; }
   </style>
 </head>
 <body>
@@ -19,6 +20,9 @@
     <div class="post">
       <h2><a href="/posts/<%= post.id %>"><%= post.title %></a></h2>
       <time><%= post.created_at %></time>
+      <% if (post.summary) { %>
+        <div class="summary"><%= post.summary %></div>
+      <% } %>
     </div>
   <% }) %>
   <% if (posts.length === 0) { %>

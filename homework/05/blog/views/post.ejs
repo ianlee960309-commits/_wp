@@ -9,12 +9,17 @@
     a:hover { text-decoration: underline; }
     .content { line-height: 1.7; white-space: pre-wrap; }
     time { color: #888; font-size: .875rem; }
+    .summary { background: #f3f4f6; border-left: 4px solid #6366f1; padding: .75rem 1rem; margin: 1rem 0; border-radius: 0 4px 4px 0; }
+    .summary strong { color: #6366f1; }
   </style>
 </head>
 <body>
   <p><a href="/posts">&larr; Back</a></p>
   <h1><%= post.title %></h1>
   <time><%= post.created_at %></time>
+  <% if (post.summary) { %>
+    <div class="summary"><strong>AI Summary:</strong> <%= post.summary %></div>
+  <% } %>
   <div class="content"><%= post.content %></div>
 </body>
 </html>
