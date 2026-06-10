@@ -1,0 +1,15 @@
+{
+  "name": "minesweeper",
+  "version": "1.0.0",
+  "description": "踩地雷遊戲 - 含伺服器排行榜",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "sql.js": "^1.11.0"
+  }
+}

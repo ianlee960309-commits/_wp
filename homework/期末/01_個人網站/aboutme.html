@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>李丞晏的個人主頁</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: "Microsoft JhengHei", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            margin: 0 auto 1.5rem;
+            font-weight: bold;
+        }
+
+        h1 {
+            margin: 0.5rem 0;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+
+        .dept {
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .info-list {
+            text-align: left;
+            border-top: 1px solid #eee;
+            padding-top: 1.5rem;
+        }
+
+        .info-item {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+
+        .label {
+            font-weight: bold;
+            width: 80px;
+            color: #7f8c8d;
+        }
+
+        .value {
+            color: var(--text-color);
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="profile-img">李</div>
+        <h1>李丞晏</h1>
+        <div class="dept">國立金門大學 資訊工程學系</div>
+
+        <div class="info-list">
+            <div class="info-item">
+                <span class="label">學號：</span>
+                <span class="value">111410501</span>
+            </div>
+            <div class="info-item">
+                <span class="label">電子郵件：</span>
+                <span class="value"><a href="mailto:s111410501@student.nqu.edu.tw">s111410501@student.nqu.edu.tw</a></span>
+            </div>
+            <div class="info-item">
+                <span class="label">電話：</span>
+                <span class="value">0918-872-290</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

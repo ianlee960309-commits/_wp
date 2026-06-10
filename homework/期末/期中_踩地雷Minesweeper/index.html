@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>踩地雷 Minesweeper</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💣</text></svg>">
+</head>
+<body>
+  <div class="container">
+    <h1>踩地雷 Minesweeper</h1>
+
+    <div class="control-bar">
+      <div class="control-group">
+        <label for="difficulty">難度：</label>
+        <select id="difficulty">
+          <option value="easy">簡單 (9×9 / 10 地雷)</option>
+          <option value="medium" selected>中等 (16×16 / 40 地雷)</option>
+          <option value="hard">困難 (16×30 / 99 地雷)</option>
+        </select>
+        <button id="newGameBtn">新遊戲</button>
+      </div>
+      <div class="control-group">
+        <div class="info-box">
+          <span>💣 <span id="mineCount">40</span></span>
+        </div>
+        <div class="info-box">
+          <span>⏱️ <span id="timer">000</span></span>
+        </div>
+        <div class="info-box">
+          <span>🏁 <span id="flagCount">0</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div id="gameBoard" class="game-board"></div>
+
+    <div id="message" class="message hidden"></div>
+
+    <div id="winModal" class="modal hidden">
+      <div class="modal-content">
+        <h2>🎉 你贏了！</h2>
+        <p>完成時間：<span id="finalTime">0</span> 秒</p>
+        <div class="input-group">
+          <label for="playerName">輸入你的名字：</label>
+          <input type="text" id="playerName" maxlength="12" placeholder="你的名字">
+        </div>
+        <button id="submitScoreBtn">提交分數</button>
+        <p id="submitMsg" class="hidden"></p>
+      </div>
+    </div>
+
+    <div class="links">
+      <a href="leaderboard.html">🏆 查看排行榜</a>
+    </div>
+  </div>
+
+  <script src="js/game.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>排行榜 - 踩地雷</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💣</text></svg>">
+</head>
+<body>
+  <div class="container">
+    <h1>🏆 排行榜</h1>
+
+    <div class="difficulty-tabs">
+      <a href="/leaderboard?difficulty=easy" class="<%= difficulty === 'easy' ? 'active' : '' %>">簡單</a>
+      <a href="/leaderboard?difficulty=medium" class="<%= difficulty === 'medium' ? 'active' : '' %>">中等</a>
+      <a href="/leaderboard?difficulty=hard" class="<%= difficulty === 'hard' ? 'active' : '' %>">困難</a>
+    </div>
+
+    <% const diffLabels = { easy: '簡單 (9×9)', medium: '中等 (16×16)', hard: '困難 (16×30)' }; %>
+
+    <table class="leaderboard-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>玩家</th>
+          <th>時間（秒）</th>
+          <th>日期</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (scores.length === 0) { %>
+          <tr><td colspan="4" class="empty-msg">尚無紀錄，快去玩一局吧！</td></tr>
+        <% } else { %>
+          <% scores.forEach((s, i) => { %>
+            <tr>
+              <td><%= i + 1 %></td>
+              <td><%= s.player_name %></td>
+              <td><%= s.time_seconds %></td>
+              <td><%= s.played_at %></td>
+            </tr>
+          <% }); %>
+        <% } %>
+      </tbody>
+    </table>
+
+    <div class="links">
+      <a href="/">⬅️ 回到遊戲</a>
+    </div>
+  </div>
+</body>
+</html>
